@@ -7,16 +7,25 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Interfaces.FrameVentas;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JTextPane;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Choice;
 
 public class DCrearVenta extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField nomProducto;
+	private JTextField precioProducto;
 
 	/**
 	 * Launch the application.
@@ -35,7 +44,7 @@ public class DCrearVenta extends JDialog {
 	 * Create the dialog.
 	 */
 	public DCrearVenta() {
-		setBounds(100, 100, 660, 412);
+		setBounds(100, 100, 663, 468);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -47,10 +56,10 @@ public class DCrearVenta extends JDialog {
 			contentPanel.add(lblNewLabel);
 		}
 		{
-			textField = new JTextField();
-			textField.setBounds(27, 60, 171, 26);
-			contentPanel.add(textField);
-			textField.setColumns(10);
+			nomProducto = new JTextField();
+			nomProducto.setBounds(27, 60, 171, 26);
+			contentPanel.add(nomProducto);
+			nomProducto.setColumns(10);
 		}
 		{
 			JLabel lblNewLabel_1 = new JLabel("Precio");
@@ -59,10 +68,10 @@ public class DCrearVenta extends JDialog {
 			contentPanel.add(lblNewLabel_1);
 		}
 		{
-			textField_1 = new JTextField();
-			textField_1.setBounds(27, 154, 171, 26);
-			contentPanel.add(textField_1);
-			textField_1.setColumns(10);
+			precioProducto = new JTextField();
+			precioProducto.setBounds(27, 154, 171, 26);
+			contentPanel.add(precioProducto);
+			precioProducto.setColumns(10);
 		}
 		{
 			JLabel lblNewLabel_2 = new JLabel("Descripcion");
@@ -71,19 +80,43 @@ public class DCrearVenta extends JDialog {
 			contentPanel.add(lblNewLabel_2);
 		}
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(27, 222, 210, 86);
-		contentPanel.add(textPane);
+		JTextPane descripcionProducto = new JTextPane();
+		descripcionProducto.setBounds(27, 222, 210, 86);
+		contentPanel.add(descripcionProducto);
+		
+		JButton btnNewButton = new JButton("Registrar/Editar Publicacion");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton.setBounds(25, 353, 267, 35);
+		contentPanel.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Subir Foto");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_1.setBounds(344, 353, 267, 35);
+		contentPanel.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNewLabel_3.setBackground(Color.LIGHT_GRAY);
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setIcon(new ImageIcon(DCrearVenta.class.getResource("/Imagenes/icons8_gallery_96px_1.png")));
+		lblNewLabel_3.setBounds(344, 106, 258, 229);
+		contentPanel.add(lblNewLabel_3);
+		{
+			Choice categoria = new Choice();
+			categoria.setFont(new Font("Dialog", Font.PLAIN, 14));
+			categoria.setBounds(204, 60, 171, 40);
+			contentPanel.add(categoria);
+		}
+		{
+			JLabel lblNewLabel_4 = new JLabel("Categoria");
+			lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 15));
+			lblNewLabel_4.setBounds(208, 26, 171, 38);
+			contentPanel.add(lblNewLabel_4);
+		}
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton cancelButton = new JButton("Cancelar");
-				cancelButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
-			}
 		}
 	}
 }

@@ -12,7 +12,12 @@ import java.awt.Choice;
 import java.awt.Panel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import Dialogos.DCrearVenta;
+
 import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FrameVentas extends JFrame {
 
@@ -46,34 +51,41 @@ public class FrameVentas extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Vender Producto");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton.setBounds(10, 388, 235, 33);
-		contentPane.add(btnNewButton);
+		JButton ventanaCrearVenta = new JButton("Vender Producto");
+		ventanaCrearVenta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DCrearVenta ventanaVentas = new DCrearVenta();
+				ventanaVentas.setVisible(rootPaneCheckingEnabled);
+			}
+		});
+		ventanaCrearVenta.setFont(new Font("Tahoma", Font.BOLD, 15));
+		ventanaCrearVenta.setBounds(10, 388, 235, 33);
+		contentPane.add(ventanaCrearVenta);
 		
-		JButton btnNewButton_1 = new JButton("Mis Publicaciones");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1.setBounds(10, 431, 235, 42);
-		contentPane.add(btnNewButton_1);
+		JButton ventanaMisProductos = new JButton("Mis Publicaciones");
+		ventanaMisProductos.setFont(new Font("Tahoma", Font.BOLD, 15));
+		ventanaMisProductos.setBounds(10, 431, 235, 42);
+		contentPane.add(ventanaMisProductos);
 		
-		JButton btnNewButton_2 = new JButton("Inf. Producto");
-		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_2.setBounds(255, 388, 235, 33);
-		contentPane.add(btnNewButton_2);
+		JButton ventanaInfoProducto = new JButton("Inf. Producto");
+		ventanaInfoProducto.setFont(new Font("Tahoma", Font.BOLD, 15));
+		ventanaInfoProducto.setBounds(255, 388, 235, 33);
+		contentPane.add(ventanaInfoProducto);
 		
-		JButton btnNewButton_3 = new JButton("Mis Compras");
-		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_3.setBounds(255, 431, 235, 42);
-		contentPane.add(btnNewButton_3);
+		JButton ventanaComprasRealizadas = new JButton("Mis Compras");
+		ventanaComprasRealizadas.setFont(new Font("Tahoma", Font.BOLD, 15));
+		ventanaComprasRealizadas.setBounds(255, 431, 235, 42);
+		contentPane.add(ventanaComprasRealizadas);
 		
-		JButton btnNewButton_4 = new JButton("Filtrar");
-		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_4.setBounds(500, 431, 230, 42);
-		contentPane.add(btnNewButton_4);
+		JButton botonFiltrar = new JButton("Filtrar");
+		botonFiltrar.setFont(new Font("Tahoma", Font.BOLD, 15));
+		botonFiltrar.setBounds(500, 431, 230, 42);
+		contentPane.add(botonFiltrar);
 		
-		Choice choice = new Choice();
-		choice.setBounds(496, 388, 234, 83);
-		contentPane.add(choice);
+		Choice catergoriaProducto = new Choice();
+		catergoriaProducto.setFont(new Font("Dialog", Font.PLAIN, 18));
+		catergoriaProducto.setBounds(496, 388, 234, 83);
+		contentPane.add(catergoriaProducto);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 27, 720, 351);
