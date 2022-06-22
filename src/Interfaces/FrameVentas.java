@@ -10,10 +10,14 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Choice;
 import java.awt.Panel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
 
 public class FrameVentas extends JFrame {
 
 	private JPanel contentPane;
+	private JTable listaProducto;
 
 	/**
 	 * Launch the application.
@@ -71,8 +75,99 @@ public class FrameVentas extends JFrame {
 		choice.setBounds(496, 388, 234, 83);
 		contentPane.add(choice);
 		
-		Panel panel = new Panel();
-		panel.setBounds(10, 51, 720, 331);
-		contentPane.add(panel);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 27, 720, 351);
+		contentPane.add(scrollPane);
+		
+		listaProducto = new JTable();
+		scrollPane.setViewportView(listaProducto);
+		listaProducto.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+			},
+			new String[] {
+				"ID", "Nombre", "Fecha", "Visto"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, Object.class, Object.class, Object.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+			boolean[] columnEditables = new boolean[] {
+				false, false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		listaProducto.getColumnModel().getColumn(0).setResizable(false);
+		listaProducto.getColumnModel().getColumn(0).setPreferredWidth(15);
+		listaProducto.getColumnModel().getColumn(1).setResizable(false);
+		listaProducto.getColumnModel().getColumn(1).setPreferredWidth(179);
+		listaProducto.getColumnModel().getColumn(2).setResizable(false);
+		listaProducto.getColumnModel().getColumn(2).setPreferredWidth(106);
+		listaProducto.getColumnModel().getColumn(3).setResizable(false);
+		listaProducto.getColumnModel().getColumn(3).setPreferredWidth(56);
 	}
 }
