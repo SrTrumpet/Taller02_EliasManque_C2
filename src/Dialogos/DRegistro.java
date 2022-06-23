@@ -10,16 +10,18 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class DRegistro extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField nomUsuario;
+	private JTextField fullName;
+	private JTextField correo;
+	private JTextField contacto;
+	private JTextField password;
+	private JTextField passConfirm;
 
 	/**
 	 * Launch the application.
@@ -44,10 +46,10 @@ public class DRegistro extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			textField = new JTextField();
-			textField.setBounds(36, 56, 204, 25);
-			contentPanel.add(textField);
-			textField.setColumns(10);
+			nomUsuario = new JTextField();
+			nomUsuario.setBounds(36, 56, 204, 25);
+			contentPanel.add(nomUsuario);
+			nomUsuario.setColumns(10);
 		}
 		{
 			JLabel lblNewLabel = new JLabel("Nombre Usuario");
@@ -56,22 +58,22 @@ public class DRegistro extends JDialog {
 			contentPanel.add(lblNewLabel);
 		}
 		{
-			textField_1 = new JTextField();
-			textField_1.setBounds(249, 56, 196, 25);
-			contentPanel.add(textField_1);
-			textField_1.setColumns(10);
+			fullName = new JTextField();
+			fullName.setBounds(249, 56, 196, 25);
+			contentPanel.add(fullName);
+			fullName.setColumns(10);
 		}
 		{
-			textField_2 = new JTextField();
-			textField_2.setBounds(36, 140, 204, 25);
-			contentPanel.add(textField_2);
-			textField_2.setColumns(10);
+			correo = new JTextField();
+			correo.setBounds(36, 140, 204, 25);
+			contentPanel.add(correo);
+			correo.setColumns(10);
 		}
 		{
-			textField_3 = new JTextField();
-			textField_3.setBounds(249, 140, 204, 25);
-			contentPanel.add(textField_3);
-			textField_3.setColumns(10);
+			contacto = new JTextField();
+			contacto.setBounds(249, 140, 204, 25);
+			contentPanel.add(contacto);
+			contacto.setColumns(10);
 		}
 		{
 			JLabel lblNewLabel_1 = new JLabel("Nombre Completo");
@@ -92,16 +94,16 @@ public class DRegistro extends JDialog {
 			contentPanel.add(lblContacto);
 		}
 		{
-			textField_4 = new JTextField();
-			textField_4.setBounds(36, 223, 204, 25);
-			contentPanel.add(textField_4);
-			textField_4.setColumns(10);
+			password = new JTextField();
+			password.setBounds(36, 223, 204, 25);
+			contentPanel.add(password);
+			password.setColumns(10);
 		}
 		{
-			textField_5 = new JTextField();
-			textField_5.setBounds(249, 223, 204, 25);
-			contentPanel.add(textField_5);
-			textField_5.setColumns(10);
+			passConfirm = new JTextField();
+			passConfirm.setBounds(249, 223, 204, 25);
+			contentPanel.add(passConfirm);
+			passConfirm.setColumns(10);
 		}
 		{
 			JLabel lblContrasea = new JLabel("Contrase\u00F1a");
@@ -116,10 +118,32 @@ public class DRegistro extends JDialog {
 			contentPanel.add(lblConfirmarcontrasea);
 		}
 		{
-			JButton btnNewButton = new JButton("Registrarse");
-			btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-			btnNewButton.setBounds(135, 286, 204, 40);
-			contentPanel.add(btnNewButton);
+			JButton accionRegistro = new JButton("Registrarse");
+			accionRegistro.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					String nombreUsuario = nomUsuario.getText();
+					String nombreCompelto = fullName.getText();
+					String correoUser = correo.getText();
+					String contactoUser = contacto.getText();
+					String contrasena = password.getText();
+					String contrasenaConfirm = passConfirm.getText();
+					
+					if (!contrasena.equals(contrasenaConfirm)) {
+						DVentanaErrorRegistro error = new DVentanaErrorRegistro();
+						error.setVisible(rootPaneCheckingEnabled);
+					}else {
+						DVentanaCorrectoRegistro registrado = new DVentanaCorrectoRegistro();
+						registrado.setVisible(true);
+						dispose();
+						
+					}
+					
+				}
+			});
+			accionRegistro.setFont(new Font("Tahoma", Font.BOLD, 15));
+			accionRegistro.setBounds(135, 286, 204, 40);
+			contentPanel.add(accionRegistro);
 		}
 		{
 			JPanel buttonPane = new JPanel();
@@ -127,5 +151,6 @@ public class DRegistro extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 		}
 	}
+	
 
 }

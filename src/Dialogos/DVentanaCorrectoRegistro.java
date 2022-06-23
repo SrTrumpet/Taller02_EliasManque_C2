@@ -9,9 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
-public class DfalloInicioSesion extends JDialog {
+public class DVentanaCorrectoRegistro extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -20,7 +21,7 @@ public class DfalloInicioSesion extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			DfalloInicioSesion dialog = new DfalloInicioSesion();
+			DVentanaCorrectoRegistro dialog = new DVentanaCorrectoRegistro();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -31,22 +32,23 @@ public class DfalloInicioSesion extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public DfalloInicioSesion() {
-		setBounds(100, 100, 363, 271);
+	public DVentanaCorrectoRegistro() {
+		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
 			JLabel lblNewLabel_1 = new JLabel("");
-			lblNewLabel_1.setIcon(new ImageIcon(DfalloInicioSesion.class.getResource("/Imagenes/error.png")));
-			lblNewLabel_1.setBounds(124, 24, 96, 96);
+			lblNewLabel_1.setIcon(new ImageIcon(DVentanaCorrectoRegistro.class.getResource("/Imagenes/correcto.png")));
+			lblNewLabel_1.setBounds(173, 54, 96, 96);
 			contentPanel.add(lblNewLabel_1);
 		}
 		{
-			JLabel lblNewLabel = new JLabel("Usuario o Contrase\u00F1a Incorrecto");
+			JLabel lblNewLabel = new JLabel("Usuario registrado correctamente");
+			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-			lblNewLabel.setBounds(49, 105, 275, 58);
+			lblNewLabel.setBounds(23, 122, 388, 68);
 			contentPanel.add(lblNewLabel);
 		}
 		{

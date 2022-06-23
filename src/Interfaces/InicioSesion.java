@@ -124,6 +124,7 @@ public class InicioSesion extends JFrame {
 			if(password.equals(passwordConfirmar)) {
 				FrameVentas ventanaPrincipal = new FrameVentas();
 				ventanaPrincipal.setVisible(true);
+				dispose();
 			}else {
 				DfalloInicioSesion ventanaError = new DfalloInicioSesion();
 				ventanaError.setVisible(rootPaneCheckingEnabled);
