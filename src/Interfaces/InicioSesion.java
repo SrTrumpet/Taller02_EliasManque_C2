@@ -1,13 +1,17 @@
 package Interfaces;
 
-import java.awt.BorderLayout;
+import java.util.*;
+import java.io.*;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Clases.ListaUsuarios;
+import Clases.Usuario;
 import Dialogos.DRegistro;
+import Dialogos.DfalloInicioSesion;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -23,11 +27,27 @@ public class InicioSesion extends JFrame {
 	private JPanel contentPane;
 	private JTextField user;
 	private JPasswordField passwordField;
+	protected static ListaUsuarios listaUser;
 
 	/**
 	 * Launch the application.
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		
+		listaUser = new ListaUsuarios(100);
+		agregarListaUsuario(listaUser);
+		
+		
+		String valor = listaUser.buscarPersona("SrTrumpet").getUsuario();
+		System.out.println(valor);
+		
+		
+		
+		
+		
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -69,6 +89,11 @@ public class InicioSesion extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		JButton btnNewButton = new JButton("Ingresar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				inicioSesion();
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton.setBounds(98, 324, 223, 41);
 		contentPane.add(btnNewButton);
@@ -94,16 +119,78 @@ public class InicioSesion extends JFrame {
 		contentPane.add(btnNewButton_1);
 	}
 	
+	
 	private void inicioSesion() {
-		
+
 		String usuario = user.getText();
 		String password = passwordField.getText();
 		
+		String nombreUsuarios = listaUser.buscarPersonaString(usuario);
+		String passwordConfirmar = listaUser.buscarContraseña(usuario);
+		if (usuario.equals(null)) {
+			DfalloInicioSesion ventanaError = new DfalloInicioSesion();
+			ventanaError.setVisible(rootPaneCheckingEnabled);
+		}
+		else if (nombreUsuarios.equals(usuario)) {
+			if(password.equals(passwordConfirmar)) {
+				FrameVentas ventanaPrincipal = new FrameVentas();
+				ventanaPrincipal.setVisible(true);
+			}else {
+				DfalloInicioSesion ventanaError = new DfalloInicioSesion();
+				ventanaError.setVisible(rootPaneCheckingEnabled);
+			}
+		}else {
+			DfalloInicioSesion ventanaError = new DfalloInicioSesion();
+			ventanaError.setVisible(rootPaneCheckingEnabled);
+		}
 		
+		
+		
+		
+		
+		/**
+		
+		procesoInicioSesion procesos = new procesoInicioSesion();
+		
+		String usuario = user.getText();
+		System.out.println("EEEEE"+ usuario);
+		String password = passwordField.getText();
+		System.out.println("EEEEE"+ password);
+		
+		
+		boolean valor = procesos.inicioSesion(usuario, password);
+		if (valor == false) {
+			DfalloInicioSesion ventanaError = new DfalloInicioSesion();
+			ventanaError.setVisible(rootPaneCheckingEnabled);
+		}else if (valor == true){
+			FrameVentas inicioPrograme = new FrameVentas();
+			inicioPrograme.setVisible(true);
+		}*/
 	}
 	
-	
-	
+	public static void agregarListaUsuario(ListaUsuarios lista) throws IOException  {
+			
+			File arch = new File("usuarios.txt");
+			Scanner leer = new Scanner(arch);
+			
+			while (leer.hasNextLine()) {
+				String linea = leer.nextLine();
+				String[] datos = linea.split(",");
+				
+				String usuario = datos[0];
+				String password = datos[1];
+				String fullName = datos[2];
+				String correo = datos[3];
+				String contacto = datos[4];
+				
+				Usuario u = new Usuario(usuario, password, fullName, correo, contacto);
+				lista.agregarUsuario(u);
+				
+			}
+			leer.close();
+			
+		}
+		
 	
 	
 	
