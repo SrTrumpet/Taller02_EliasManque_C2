@@ -45,7 +45,6 @@ public class ListaUsuarios {
 		int i;
 		for (i = 0; i < cantUsuarios; i++) {
 			if (user[i].getUsuario().equals(nombre)){
-				System.out.println(user[i].getUsuario());
 				break;
 			}
 		}if (i == cantUsuarios){
@@ -59,7 +58,6 @@ public class ListaUsuarios {
 		int i;
 		for (i = 0; i < cantUsuarios; i++) {
 			if (user[i].getUsuario().equals(nombre)){
-				System.out.println(user[i].getUsuario());
 				break;
 			}
 		}if (i == cantUsuarios){

@@ -37,17 +37,7 @@ public class InicioSesion extends JFrame {
 		
 		listaUser = new ListaUsuarios(100);
 		agregarListaUsuario(listaUser);
-		
-		
-		String valor = listaUser.buscarPersona("SrTrumpet").getUsuario();
-		System.out.println(valor);
-		
-		
-		
-		
-		
-		
-		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -121,7 +111,6 @@ public class InicioSesion extends JFrame {
 	
 	
 	private void inicioSesion() {
-
 		String usuario = user.getText();
 		String password = passwordField.getText();
 		
@@ -143,10 +132,6 @@ public class InicioSesion extends JFrame {
 			DfalloInicioSesion ventanaError = new DfalloInicioSesion();
 			ventanaError.setVisible(rootPaneCheckingEnabled);
 		}
-		
-		
-		
-		
 		
 		/**
 		
