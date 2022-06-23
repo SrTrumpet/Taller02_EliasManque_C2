@@ -1,3 +1,4 @@
 SrTrumpet,elias123,Elias Manque Olivares,elias.manque.o@gmail.com,+56948667729
 elvaSurita,1234,Elias Manque Olivares,elias.manque.o@gmail.com,+56948667729
 pedro,12345,Elias Manque Olivares,elias.manque.o@gmail.com,+56948667729
+moma,123,Elias Manque Olivares,elias.manque.o@gmail.com,+56948667729
