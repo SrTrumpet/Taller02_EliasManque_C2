@@ -14,6 +14,9 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import Dialogos.DCrearVenta;
+import Dialogos.DInfProducto;
+import Dialogos.DMisCompras;
+import Dialogos.DMisPublicaciones;
 
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
@@ -63,16 +66,34 @@ public class FrameVentas extends JFrame {
 		contentPane.add(ventanaCrearVenta);
 		
 		JButton ventanaMisProductos = new JButton("Mis Publicaciones");
+		ventanaMisProductos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DMisPublicaciones ventanaMisPublicaciones = new DMisPublicaciones();
+				ventanaMisPublicaciones.setVisible(rootPaneCheckingEnabled);
+			}
+		});
 		ventanaMisProductos.setFont(new Font("Tahoma", Font.BOLD, 15));
 		ventanaMisProductos.setBounds(10, 431, 235, 42);
 		contentPane.add(ventanaMisProductos);
 		
 		JButton ventanaInfoProducto = new JButton("Inf. Producto");
+		ventanaInfoProducto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DInfProducto ventanaProducto = new DInfProducto();
+				ventanaProducto.setVisible(rootPaneCheckingEnabled);
+			}
+		});
 		ventanaInfoProducto.setFont(new Font("Tahoma", Font.BOLD, 15));
 		ventanaInfoProducto.setBounds(255, 388, 235, 33);
 		contentPane.add(ventanaInfoProducto);
 		
 		JButton ventanaComprasRealizadas = new JButton("Mis Compras");
+		ventanaComprasRealizadas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DMisCompras ventanaCompras = new DMisCompras();
+				ventanaCompras.setVisible(rootPaneCheckingEnabled);
+			}
+		});
 		ventanaComprasRealizadas.setFont(new Font("Tahoma", Font.BOLD, 15));
 		ventanaComprasRealizadas.setBounds(255, 431, 235, 42);
 		contentPane.add(ventanaComprasRealizadas);

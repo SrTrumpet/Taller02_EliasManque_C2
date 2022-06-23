@@ -81,7 +81,8 @@ public class DCrearVenta extends JDialog {
 		}
 		
 		JTextPane descripcionProducto = new JTextPane();
-		descripcionProducto.setBounds(27, 222, 210, 86);
+		descripcionProducto.setText("....");
+		descripcionProducto.setBounds(27, 222, 307, 86);
 		contentPanel.add(descripcionProducto);
 		
 		JButton btnNewButton = new JButton("Registrar/Editar Publicacion");

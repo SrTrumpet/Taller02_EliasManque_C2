@@ -6,17 +6,22 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Dialogos.DRegistro;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class InicioSesion extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField user;
 	private JPasswordField passwordField;
 
 	/**
@@ -68,13 +73,59 @@ public class InicioSesion extends JFrame {
 		btnNewButton.setBounds(98, 324, 223, 41);
 		contentPane.add(btnNewButton);
 		
-		textField = new JTextField();
-		textField.setBounds(98, 96, 223, 35);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		user = new JTextField();
+		user.setBounds(98, 96, 223, 35);
+		contentPane.add(user);
+		user.setColumns(10);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(98, 203, 223, 35);
 		contentPane.add(passwordField);
+		
+		JButton btnNewButton_1 = new JButton("Registrate");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DRegistro ventanaRegistro = new DRegistro();
+				ventanaRegistro.setVisible(rootPaneCheckingEnabled);
+			}
+		});
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton_1.setBounds(194, 269, 112, 25);
+		contentPane.add(btnNewButton_1);
 	}
+	
+	private void inicioSesion() {
+		
+		String usuario = user.getText();
+		String password = passwordField.getText();
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
