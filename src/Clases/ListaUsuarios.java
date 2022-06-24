@@ -1,10 +1,14 @@
 package Clases;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class ListaUsuarios {
 	
-	private Usuario user[];
+	private static Usuario user[];
 	private int max;
-	private int cantUsuarios;
+	private static int cantUsuarios;
 	
 	public ListaUsuarios(int max) {
 		this.max = max;
@@ -67,6 +71,49 @@ public class ListaUsuarios {
 			return user[i].getPassword();
 		}
 	}
+	
+	public static void saveTxt(ListaUsuarios lista) throws IOException {
+		
+		
+		File arch = new File("usuarios.txt");
+		String ruta = arch.getAbsolutePath();
+		FileWriter nuevoArch = new FileWriter(ruta);
+		
+		int ultimaLinea = 0;
+        ultimaLinea = cantUsuarios - 1;
+		
+		
+		
+		for (int i = 0 ; i < cantUsuarios; i++) {
+			
+			if (ultimaLinea == i){
+				nuevoArch.write(user[i].getUsuario() + "," + user[i].getPassword() + ","+ user[i].getFullName()+ "," 
+							  + user[i].getCorreo()  + "," + user[i].getContacto());
+            }else{
+            	nuevoArch.write(user[i].getUsuario() + "," + user[i].getPassword() + ","+ user[i].getFullName()+ "," 
+						      + user[i].getCorreo()  + "," + user[i].getContacto()+"\n");
+            }
+		}
+		nuevoArch.close();
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 

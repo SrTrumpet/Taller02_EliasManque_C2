@@ -4,7 +4,7 @@ import Clases.ListaUsuarios;
 
 public class procesoInicioSesion {
 	
-	private ListaUsuarios lista;
+	
 	
 	
 

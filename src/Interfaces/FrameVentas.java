@@ -21,6 +21,7 @@ import Dialogos.DMisPublicaciones;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
 
 public class FrameVentas extends JFrame {
 
@@ -48,7 +49,7 @@ public class FrameVentas extends JFrame {
 	 */
 	public FrameVentas() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 754, 520);
+		setBounds(100, 100, 754, 569);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -62,7 +63,7 @@ public class FrameVentas extends JFrame {
 			}
 		});
 		ventanaCrearVenta.setFont(new Font("Tahoma", Font.BOLD, 15));
-		ventanaCrearVenta.setBounds(10, 388, 235, 33);
+		ventanaCrearVenta.setBounds(10, 437, 235, 33);
 		contentPane.add(ventanaCrearVenta);
 		
 		JButton ventanaMisProductos = new JButton("Mis Publicaciones");
@@ -73,7 +74,7 @@ public class FrameVentas extends JFrame {
 			}
 		});
 		ventanaMisProductos.setFont(new Font("Tahoma", Font.BOLD, 15));
-		ventanaMisProductos.setBounds(10, 431, 235, 42);
+		ventanaMisProductos.setBounds(10, 480, 235, 42);
 		contentPane.add(ventanaMisProductos);
 		
 		JButton ventanaInfoProducto = new JButton("Inf. Producto");
@@ -84,7 +85,7 @@ public class FrameVentas extends JFrame {
 			}
 		});
 		ventanaInfoProducto.setFont(new Font("Tahoma", Font.BOLD, 15));
-		ventanaInfoProducto.setBounds(255, 388, 235, 33);
+		ventanaInfoProducto.setBounds(255, 437, 235, 33);
 		contentPane.add(ventanaInfoProducto);
 		
 		JButton ventanaComprasRealizadas = new JButton("Mis Compras");
@@ -95,21 +96,21 @@ public class FrameVentas extends JFrame {
 			}
 		});
 		ventanaComprasRealizadas.setFont(new Font("Tahoma", Font.BOLD, 15));
-		ventanaComprasRealizadas.setBounds(255, 431, 235, 42);
+		ventanaComprasRealizadas.setBounds(255, 480, 235, 42);
 		contentPane.add(ventanaComprasRealizadas);
 		
 		JButton botonFiltrar = new JButton("Filtrar");
 		botonFiltrar.setFont(new Font("Tahoma", Font.BOLD, 15));
-		botonFiltrar.setBounds(500, 431, 230, 42);
+		botonFiltrar.setBounds(500, 480, 230, 42);
 		contentPane.add(botonFiltrar);
 		
 		Choice catergoriaProducto = new Choice();
 		catergoriaProducto.setFont(new Font("Dialog", Font.PLAIN, 18));
-		catergoriaProducto.setBounds(496, 388, 234, 83);
+		catergoriaProducto.setBounds(496, 437, 234, 83);
 		contentPane.add(catergoriaProducto);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 27, 720, 351);
+		scrollPane.setBounds(10, 76, 720, 351);
 		contentPane.add(scrollPane);
 		
 		listaProducto = new JTable();
@@ -194,6 +195,21 @@ public class FrameVentas extends JFrame {
 				return columnEditables[column];
 			}
 		});
+		
+		JLabel lblNewLabel = new JLabel("Bienvenido");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel.setBounds(10, 10, 99, 23);
+		contentPane.add(lblNewLabel);
+		
+		JLabel nomUsuarioSesion = new JLabel("["+ InicioSesion.getUsuarioInicio() +"]");
+		nomUsuarioSesion.setFont(new Font("Tahoma", Font.BOLD, 15));
+		nomUsuarioSesion.setBounds(102, 10, 388, 23);
+		contentPane.add(nomUsuarioSesion);
+		
+		JLabel lblListaDeProductos = new JLabel("Lista de Productos disponibles");
+		lblListaDeProductos.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblListaDeProductos.setBounds(10, 43, 297, 23);
+		contentPane.add(lblListaDeProductos);
 		listaProducto.getColumnModel().getColumn(0).setResizable(false);
 		listaProducto.getColumnModel().getColumn(0).setPreferredWidth(15);
 		listaProducto.getColumnModel().getColumn(1).setResizable(false);

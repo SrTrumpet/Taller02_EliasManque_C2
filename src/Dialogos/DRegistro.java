@@ -7,10 +7,16 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Clases.ListaUsuarios;
+import Clases.Usuario;
+import Interfaces.InicioSesion;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class DRegistro extends JDialog {
@@ -40,6 +46,7 @@ public class DRegistro extends JDialog {
 	 * Create the dialog.
 	 */
 	public DRegistro() {
+		setTitle("VentasCoquimbo - Registro");
 		setBounds(100, 100, 504, 401);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -65,12 +72,14 @@ public class DRegistro extends JDialog {
 		}
 		{
 			correo = new JTextField();
+			correo.setText("@gmail.com");
 			correo.setBounds(36, 140, 204, 25);
 			contentPanel.add(correo);
 			correo.setColumns(10);
 		}
 		{
 			contacto = new JTextField();
+			contacto.setText("+569");
 			contacto.setBounds(249, 140, 204, 25);
 			contentPanel.add(contacto);
 			contacto.setColumns(10);
@@ -133,6 +142,19 @@ public class DRegistro extends JDialog {
 						DVentanaErrorRegistro error = new DVentanaErrorRegistro();
 						error.setVisible(rootPaneCheckingEnabled);
 					}else {
+						Usuario u = new Usuario(nombreUsuario, contrasena, nombreCompelto, correoUser, contactoUser);
+						ListaUsuarios lista = InicioSesion.getLista();
+						
+						lista.agregarUsuario(u);
+						
+						try {
+							ListaUsuarios.saveTxt(lista);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
+						
 						DVentanaCorrectoRegistro registrado = new DVentanaCorrectoRegistro();
 						registrado.setVisible(true);
 						dispose();

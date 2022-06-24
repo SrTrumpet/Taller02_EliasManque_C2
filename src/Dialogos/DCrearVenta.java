@@ -44,6 +44,7 @@ public class DCrearVenta extends JDialog {
 	 * Create the dialog.
 	 */
 	public DCrearVenta() {
+		setTitle("VentasCoquimbo - Publicar Producto");
 		setBounds(100, 100, 663, 468);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

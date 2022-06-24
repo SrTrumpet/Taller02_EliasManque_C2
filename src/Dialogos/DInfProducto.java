@@ -39,6 +39,7 @@ public class DInfProducto extends JDialog {
 	 * Create the dialog.
 	 */
 	public DInfProducto() {
+		setTitle("VentasCoquimbo - Info Producto");
 		setBounds(100, 100, 801, 437);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

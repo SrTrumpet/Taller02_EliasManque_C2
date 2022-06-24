@@ -35,6 +35,7 @@ public class DMisPublicaciones extends JDialog {
 	 * Create the dialog.
 	 */
 	public DMisPublicaciones() {
+		setTitle("VentasCoquimbo - Mis Publicaciones");
 		setBounds(100, 100, 669, 428);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

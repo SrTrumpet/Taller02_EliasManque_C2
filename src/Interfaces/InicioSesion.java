@@ -28,6 +28,7 @@ public class InicioSesion extends JFrame {
 	private JTextField user;
 	private JPasswordField passwordField;
 	protected static ListaUsuarios listaUser;
+	private static String usuarioInicio;
 
 	/**
 	 * Launch the application.
@@ -54,6 +55,7 @@ public class InicioSesion extends JFrame {
 	 * Create the frame.
 	 */
 	public InicioSesion() {
+		setTitle("VentasCoquimbo - Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 444, 442);
 		contentPane = new JPanel();
@@ -122,6 +124,7 @@ public class InicioSesion extends JFrame {
 		}
 		else if (nombreUsuarios.equals(usuario)) {
 			if(password.equals(passwordConfirmar)) {
+				usuarioInicio = usuario;
 				FrameVentas ventanaPrincipal = new FrameVentas();
 				ventanaPrincipal.setVisible(true);
 				dispose();
@@ -178,7 +181,13 @@ public class InicioSesion extends JFrame {
 		}
 		
 	
+	public static ListaUsuarios getLista() {
+		return listaUser;
+	}
 	
+	public static String getUsuarioInicio() {
+		return usuarioInicio;
+	}
 	
 	
 	
