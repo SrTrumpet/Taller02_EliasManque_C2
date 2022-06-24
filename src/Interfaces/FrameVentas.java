@@ -48,6 +48,7 @@ public class FrameVentas extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameVentas() {
+		setTitle("VentasCoquimbo - Perfil");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 754, 569);
 		contentPane = new JPanel();
