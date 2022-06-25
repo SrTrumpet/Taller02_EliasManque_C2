@@ -131,6 +131,9 @@ public class DRegistro extends JDialog {
 			accionRegistro.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					
+					
+					
+					
 					String nombreUsuario = nomUsuario.getText();
 					String nombreCompelto = fullName.getText();
 					String correoUser = correo.getText();
@@ -138,7 +141,10 @@ public class DRegistro extends JDialog {
 					String contrasena = password.getText();
 					String contrasenaConfirm = passConfirm.getText();
 					
-					if (!contrasena.equals(contrasenaConfirm)) {
+					if(ListaUsuarios.personaExiste(nombreUsuario)) {
+						DVentanaErrorRegistroUsuarioExiste ventanaErrorUsuario = new DVentanaErrorRegistroUsuarioExiste();
+						ventanaErrorUsuario.setVisible(rootPaneCheckingEnabled);
+					} else if (!contrasena.equals(contrasenaConfirm)) {
 						DVentanaErrorRegistro error = new DVentanaErrorRegistro();
 						error.setVisible(rootPaneCheckingEnabled);
 					}else {

@@ -20,6 +20,10 @@ public class ListaUsuarios {
 		
 	}
 
+	
+	
+	
+	
 	public boolean agregarUsuario(Usuario usuario) {
 		if (cantUsuarios < max) {
 			user[cantUsuarios] = usuario;
@@ -29,6 +33,9 @@ public class ListaUsuarios {
 			return false;
 		}
 	}
+	
+	
+	
 	
 	public Usuario buscarPersona(String nombre){
 		int i;
@@ -45,6 +52,23 @@ public class ListaUsuarios {
 			return user[i];
 		}
 	}
+	
+	
+	
+	public static boolean personaExiste(String busqueda) {
+		
+		int i;
+		for( i = 0 ; i< cantUsuarios; i++) {
+			if (user[i].getUsuario().equals(busqueda)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	
+	
 	public String buscarPersonaString(String nombre) {
 		int i;
 		for (i = 0; i < cantUsuarios; i++) {
@@ -58,6 +82,11 @@ public class ListaUsuarios {
 			return user[i].getUsuario();
 		}
 	}
+	
+	
+	
+	
+	
 	public String buscarContraseña(String nombre) {
 		int i;
 		for (i = 0; i < cantUsuarios; i++) {
@@ -71,6 +100,11 @@ public class ListaUsuarios {
 			return user[i].getPassword();
 		}
 	}
+	
+	
+	
+	
+	
 	
 	public static void saveTxt(ListaUsuarios lista) throws IOException {
 		

@@ -21,6 +21,7 @@ public class DVentanaErrorRegistro extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
+			
 			DVentanaErrorRegistro dialog = new DVentanaErrorRegistro();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
@@ -39,10 +40,10 @@ public class DVentanaErrorRegistro extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(DVentanaErrorRegistro.class.getResource("/Imagenes/error.png")));
-		lblNewLabel_1.setBounds(165, 42, 96, 96);
-		contentPanel.add(lblNewLabel_1);
+		JLabel iconoError = new JLabel("");
+		iconoError.setIcon(new ImageIcon(DVentanaErrorRegistro.class.getResource("/Imagenes/error.png")));
+		iconoError.setBounds(165, 42, 96, 96);
+		contentPanel.add(iconoError);
 		{
 			JLabel lblNewLabel = new JLabel("Error, Contrase\u00F1a no Coincide");
 			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Clases.ListaProductos;
 import Clases.ListaUsuarios;
 import Clases.Usuario;
 import Dialogos.DRegistro;
@@ -27,7 +28,9 @@ public class InicioSesion extends JFrame {
 	private JPanel contentPane;
 	private JTextField user;
 	private JPasswordField passwordField;
+	
 	protected static ListaUsuarios listaUser;
+	protected static ListaProductos listaProducto;
 	private static String usuarioInicio;
 
 	/**
@@ -37,6 +40,7 @@ public class InicioSesion extends JFrame {
 	public static void main(String[] args) throws IOException {
 		
 		listaUser = new ListaUsuarios(100);
+		listaProducto = new ListaProductos(100);
 		agregarListaUsuario(listaUser);
 
 		EventQueue.invokeLater(new Runnable() {

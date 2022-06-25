@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Interfaces.FrameVentas;
+import Interfaces.InicioSesion;
+import Logica.procesoRegistroProducto;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -26,6 +28,13 @@ public class DCrearVenta extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField nomProducto;
 	private JTextField precioProducto;
+	private Choice categoria;
+	private JTextPane descripcionProducto;
+	
+	
+	
+	
+	
 
 	/**
 	 * Launch the application.
@@ -81,12 +90,50 @@ public class DCrearVenta extends JDialog {
 			contentPanel.add(lblNewLabel_2);
 		}
 		
-		JTextPane descripcionProducto = new JTextPane();
+		descripcionProducto = new JTextPane();
 		descripcionProducto.setText("....");
 		descripcionProducto.setBounds(27, 222, 307, 86);
 		contentPanel.add(descripcionProducto);
 		
 		JButton btnNewButton = new JButton("Registrar/Editar Publicacion");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String nombreProducto = nomProducto.getText();
+				String nombreUsuario = InicioSesion.getUsuarioInicio();
+				String categoriaProducto = categoria.getSelectedItem();
+				int precio =  Integer.parseInt(precioProducto.getText());
+				String descripcion = descripcionProducto.getText();
+				
+				
+				try {
+					if(categoriaProducto.equals("-----")) {
+						System.out.println(nombreUsuario);
+						System.out.println("Elija una categoria");
+					}
+					else if(nombreProducto.equals("")) {
+						System.out.println("Ingrese un nombre");
+					}
+					else if (!procesoRegistroProducto.agregarProducto(nombreProducto,nombreUsuario,categoriaProducto,precio,descripcion)) {
+						procesoRegistroProducto.guardarTxtProducto();
+					}
+					
+				} catch (Exception e2) {
+					System.out.println(e2.getMessage());
+				}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton.setBounds(25, 353, 267, 35);
 		contentPanel.add(btnNewButton);
@@ -104,9 +151,24 @@ public class DCrearVenta extends JDialog {
 		lblNewLabel_3.setBounds(344, 106, 258, 229);
 		contentPanel.add(lblNewLabel_3);
 		{
-			Choice categoria = new Choice();
+			categoria = new Choice();
 			categoria.setFont(new Font("Dialog", Font.PLAIN, 14));
 			categoria.setBounds(204, 60, 171, 40);
+			
+			categoria.add("-----");
+			categoria.add("Juego");
+			categoria.add("Cocina u Hogar");
+			categoria.add("Electrodomesticos");
+			categoria.add("Herramienta");
+			categoria.add("Moda");
+			categoria.add("Oficina");
+			categoria.add("Deporte y Fitness");
+			categoria.add("Telefonia");
+			categoria.add("Audio o Video");
+			categoria.add("Computacion");
+			categoria.add("Vehiculo");
+			
+			
 			contentPanel.add(categoria);
 		}
 		{

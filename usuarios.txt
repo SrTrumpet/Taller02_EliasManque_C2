@@ -2,5 +2,5 @@ SrTrumpet,elias123,Elias Manque Olivares,elias.manque.o@gmail.com,+56948667729
 elvaSurita,1234,Elias Manque Olivares,elias.manque.o@gmail.com,+56948667729
 pedro,12345,Elias Manque Olivares,elias.manque.o@gmail.com,+56948667729
 moma,123,Elias Manque Olivares,elias.manque.o@gmail.com,+56948667729
-aaa,aaa,aaa,aaa,aaa
 lisetMasBacan,liset123,Liset Olivares,lisetBacan@gmail.com,+569quetimporta
+bob,1234,boderland ernesto,bob@gmail.com,+56948667729

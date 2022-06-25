@@ -12,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 public class DMisCompras extends JDialog {
 
@@ -35,6 +36,7 @@ public class DMisCompras extends JDialog {
 	 * Create the dialog.
 	 */
 	public DMisCompras() {
+		setTitle("VentasCoquimbo - Mis Publicaciones");
 		setBounds(100, 100, 682, 478);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -108,6 +108,20 @@ public class FrameVentas extends JFrame {
 		Choice catergoriaProducto = new Choice();
 		catergoriaProducto.setFont(new Font("Dialog", Font.PLAIN, 18));
 		catergoriaProducto.setBounds(496, 437, 234, 83);
+		
+		catergoriaProducto.add("-----");
+		catergoriaProducto.add("Juego");
+		catergoriaProducto.add("Cocina u Hogar");
+		catergoriaProducto.add("Electrodomesticos");
+		catergoriaProducto.add("Herramienta");
+		catergoriaProducto.add("Moda");
+		catergoriaProducto.add("Oficina");
+		catergoriaProducto.add("Deporte y Fitness");
+		catergoriaProducto.add("Telefonia");
+		catergoriaProducto.add("Audio o Video");
+		catergoriaProducto.add("Computacion");
+		catergoriaProducto.add("Vehiculo");
+		
 		contentPane.add(catergoriaProducto);
 		
 		JScrollPane scrollPane = new JScrollPane();
