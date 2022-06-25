@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 import Clases.ListaUsuarios;
 import Clases.Usuario;
+import Ejecutable.InicioMain;
 import Interfaces.InicioSesion;
 
 import javax.swing.JTextField;
@@ -149,7 +150,7 @@ public class DRegistro extends JDialog {
 						error.setVisible(rootPaneCheckingEnabled);
 					}else {
 						Usuario u = new Usuario(nombreUsuario, contrasena, nombreCompelto, correoUser, contactoUser);
-						ListaUsuarios lista = InicioSesion.getLista();
+						ListaUsuarios lista = InicioMain.getListaUsuarios();
 						
 						lista.agregarUsuario(u);
 						

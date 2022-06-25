@@ -1,6 +1,5 @@
 package Clases;
 
-import java.awt.Image;
 
 public class Productos {
 	

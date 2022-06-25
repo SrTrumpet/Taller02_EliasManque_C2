@@ -13,6 +13,7 @@ import Clases.ListaUsuarios;
 import Clases.Usuario;
 import Dialogos.DRegistro;
 import Dialogos.DfalloInicioSesion;
+import Ejecutable.InicioMain;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -29,8 +30,8 @@ public class InicioSesion extends JFrame {
 	private JTextField user;
 	private JPasswordField passwordField;
 	
-	protected static ListaUsuarios listaUser;
-	protected static ListaProductos listaProducto;
+	protected static ListaUsuarios listaUser = InicioMain.getListaUsuarios();
+	protected static ListaProductos listaProducto = InicioMain.getListaProductos();
 	private static String usuarioInicio;
 
 	/**
@@ -38,10 +39,6 @@ public class InicioSesion extends JFrame {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		
-		listaUser = new ListaUsuarios(100);
-		listaProducto = new ListaProductos(100);
-		agregarListaUsuario(listaUser);
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -87,7 +84,9 @@ public class InicioSesion extends JFrame {
 		JButton btnNewButton = new JButton("Ingresar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				inicioSesion();
+				
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -117,11 +116,14 @@ public class InicioSesion extends JFrame {
 	
 	
 	private void inicioSesion() {
+		
 		String usuario = user.getText();
 		String password = passwordField.getText();
 		
 		String nombreUsuarios = listaUser.buscarPersonaString(usuario);
 		String passwordConfirmar = listaUser.buscarContraseña(usuario);
+		
+		
 		if (usuario.equals(null)) {
 			DfalloInicioSesion ventanaError = new DfalloInicioSesion();
 			ventanaError.setVisible(rootPaneCheckingEnabled);
@@ -141,53 +143,8 @@ public class InicioSesion extends JFrame {
 			ventanaError.setVisible(rootPaneCheckingEnabled);
 		}
 		
-		/**
-		
-		procesoInicioSesion procesos = new procesoInicioSesion();
-		
-		String usuario = user.getText();
-		System.out.println("EEEEE"+ usuario);
-		String password = passwordField.getText();
-		System.out.println("EEEEE"+ password);
-		
-		
-		boolean valor = procesos.inicioSesion(usuario, password);
-		if (valor == false) {
-			DfalloInicioSesion ventanaError = new DfalloInicioSesion();
-			ventanaError.setVisible(rootPaneCheckingEnabled);
-		}else if (valor == true){
-			FrameVentas inicioPrograme = new FrameVentas();
-			inicioPrograme.setVisible(true);
-		}*/
 	}
-	
-	public static void agregarListaUsuario(ListaUsuarios lista) throws IOException  {
-			
-			File arch = new File("usuarios.txt");
-			Scanner leer = new Scanner(arch);
-			
-			while (leer.hasNextLine()) {
-				String linea = leer.nextLine();
-				String[] datos = linea.split(",");
-				
-				String usuario = datos[0];
-				String password = datos[1];
-				String fullName = datos[2];
-				String correo = datos[3];
-				String contacto = datos[4];
-				
-				Usuario u = new Usuario(usuario, password, fullName, correo, contacto);
-				lista.agregarUsuario(u);
-				
-			}
-			leer.close();
-			
-		}
-		
-	
-	public static ListaUsuarios getLista() {
-		return listaUser;
-	}
+
 	
 	public static String getUsuarioInicio() {
 		return usuarioInicio;

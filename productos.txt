@@ -1,1 +1,3 @@
 SrTrumpet,popo,Cocina u Hogar,30000,popote
+popa,popote,Cocina u Hogar,12,solo es un popote
+moma,poosss,Moda,60000000,caro y wenardo

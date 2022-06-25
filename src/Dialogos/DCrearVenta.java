@@ -116,6 +116,9 @@ public class DCrearVenta extends JDialog {
 					}
 					else if (!procesoRegistroProducto.agregarProducto(nombreProducto,nombreUsuario,categoriaProducto,precio,descripcion)) {
 						procesoRegistroProducto.guardarTxtProducto();
+						dispose();
+						DRegistroProductoCorrecto v = new DRegistroProductoCorrecto();
+						v.setVisible(rootPaneCheckingEnabled);
 					}
 					
 				} catch (Exception e2) {
