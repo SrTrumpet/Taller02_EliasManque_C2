@@ -13,6 +13,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import Clases.ListaUsuarios;
+import Interfaces.InicioSesion;
+
+import javax.swing.SwingConstants;
+
 public class DMisPublicaciones extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -79,6 +84,13 @@ public class DMisPublicaciones extends JDialog {
 				table.getColumnModel().getColumn(4).setPreferredWidth(15);
 				scrollPane.setViewportView(table);
 			}
+		}
+		{
+			
+			JLabel nombreCompleto = new JLabel("Nombre: "+ ListaUsuarios.buscarPersona(InicioSesion.getUsuarioInicio()).getFullName());
+			nombreCompleto.setHorizontalAlignment(SwingConstants.CENTER);
+			nombreCompleto.setBounds(394, 10, 251, 25);
+			contentPanel.add(nombreCompleto);
 		}
 		{
 			JPanel buttonPane = new JPanel();

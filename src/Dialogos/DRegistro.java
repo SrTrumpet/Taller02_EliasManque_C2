@@ -142,7 +142,12 @@ public class DRegistro extends JDialog {
 					String contrasena = password.getText();
 					String contrasenaConfirm = passConfirm.getText();
 					
-					if(ListaUsuarios.personaExiste(nombreUsuario)) {
+					if(contactoUser.length() != 12) {
+						DRegistroErrorContacto ventanaErrorContacto = new DRegistroErrorContacto();
+						ventanaErrorContacto.setVisible(rootPaneCheckingEnabled);
+					}
+					
+					else if(ListaUsuarios.personaExiste(nombreUsuario)) {
 						DVentanaErrorRegistroUsuarioExiste ventanaErrorUsuario = new DVentanaErrorRegistroUsuarioExiste();
 						ventanaErrorUsuario.setVisible(rootPaneCheckingEnabled);
 					} else if (!contrasena.equals(contrasenaConfirm)) {

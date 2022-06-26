@@ -1,7 +1,3 @@
-SrTrumpet,elias123,Elias Manque Olivares,elias.manque.o@gmail.com,+56948667729
-elvaSurita,1234,Elias Manque Olivares,elias.manque.o@gmail.com,+56948667729
-pedro,12345,Elias Manque Olivares,elias.manque.o@gmail.com,+56948667729
-moma,123,Elias Manque Olivares,elias.manque.o@gmail.com,+56948667729
-lisetMasBacan,liset123,Liset Olivares,lisetBacan@gmail.com,+569quetimporta
-bob,1234,boderland ernesto,bob@gmail.com,+56948667729
-popa,popa123,popaeira ramirez,popa@gmail.com,+5694565455
+elHuevo,huevito123,el huevito,elhuevito@gmail.com,+56948569286
+SrTrumpet,1234,Elias Manque Olivares,eliasmanque@gmail.com,+56948667729
+elias,123,elias Nicolas,eeee@gmail.com,+56956789245

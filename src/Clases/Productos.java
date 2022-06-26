@@ -8,16 +8,20 @@ public class Productos {
 	private String categoria;
 	private int precio;
 	private String descripcion;
+	private int id;
+	private String fecha;
 	//private Image imgProducto;
 	//private String rutaImg;
 	
 	
-	public Productos(String nomUsuario, String nomProducto, String categoria, int precio, String descripcion) {
+	public Productos(String nomUsuario, String nomProducto, String categoria, int precio, String descripcion,int id,String fecha) {
 		this.categoria = categoria;
 		this.descripcion = descripcion;
 		this.nomUsuario = nomUsuario;
 		this.nomProducto = nomProducto;
 		this.precio = precio;
+		this.id = id;
+		this.fecha = fecha;
 	}
 	
 	
@@ -58,6 +62,18 @@ public class Productos {
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getFecha() {
+		return fecha;
+	}
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
 	
 	

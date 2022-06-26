@@ -37,7 +37,7 @@ public class ListaUsuarios {
 	
 	
 	
-	public Usuario buscarPersona(String nombre){
+	public static Usuario buscarPersona(String nombre){
 		int i;
 		for(i = 0; i < cantUsuarios; i++){
 			if (user[i].getUsuario().equals(nombre)){

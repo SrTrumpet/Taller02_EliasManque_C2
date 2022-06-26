@@ -1,3 +1,2 @@
-SrTrumpet,popo,Cocina u Hogar,30000,popote
-popa,popote,Cocina u Hogar,12,solo es un popote
-moma,poosss,Moda,60000000,caro y wenardo
+elHuevo,poly Station,Juego,200000,corre too a 60,1,2022-06-25
+aaa,popo,Cocina u Hogar,30,es popo,2,2022-06-25

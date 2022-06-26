@@ -36,6 +36,11 @@ public class InicioMain {
 	public static void agregarListaUsuario(ListaUsuarios lista) throws IOException  {
 		
 		File arch = new File("usuarios.txt");
+		
+		if (!arch.exists()) {
+			arch.createNewFile();
+		}
+		
 		Scanner leer = new Scanner(arch);
 		
 		while (leer.hasNextLine()) {
@@ -60,6 +65,10 @@ public class InicioMain {
 	public static void agregarListaProducto(ListaProductos lista) throws IOException  {
 		
 		File arch = new File("productos.txt");
+		
+		if (!arch.exists()) {
+			arch.createNewFile();
+		}
 		Scanner leer = new Scanner(arch);
 		
 		while (leer.hasNextLine()) {
@@ -71,13 +80,14 @@ public class InicioMain {
 			String categoria = datos[2];
 			int precio = Integer.parseInt(datos[3]);
 			String descripcion = datos[4];
+			int id = Integer.parseInt(datos[5]);
+			String fecha = datos[6];
 			
-			Productos p = new Productos(usuario, producto, categoria, precio, descripcion);
+			Productos p = new Productos(usuario, producto, categoria, precio, descripcion,id,fecha);
 			lista.agregarProducto(p);
 			
 		}
 		leer.close();
-		
 	}
 
 

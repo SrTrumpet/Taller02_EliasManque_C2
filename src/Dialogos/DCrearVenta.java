@@ -8,6 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Clases.ListaProductos;
 import Interfaces.FrameVentas;
 import Interfaces.InicioSesion;
 import Logica.procesoRegistroProducto;
@@ -20,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 import java.awt.Choice;
 
@@ -104,6 +106,10 @@ public class DCrearVenta extends JDialog {
 				String categoriaProducto = categoria.getSelectedItem();
 				int precio =  Integer.parseInt(precioProducto.getText());
 				String descripcion = descripcionProducto.getText();
+				int ultimoValor = ListaProductos.getCantProducto() + 1;
+				LocalDate fechaObtenida = LocalDate.now();
+				String fecha = fechaObtenida.toString();
+				System.out.println(fecha);
 				
 				
 				try {
@@ -114,7 +120,7 @@ public class DCrearVenta extends JDialog {
 					else if(nombreProducto.equals("")) {
 						System.out.println("Ingrese un nombre");
 					}
-					else if (!procesoRegistroProducto.agregarProducto(nombreProducto,nombreUsuario,categoriaProducto,precio,descripcion)) {
+					else if (!procesoRegistroProducto.agregarProducto(nombreProducto,nombreUsuario,categoriaProducto,precio,descripcion,ultimoValor,fecha)) {
 						procesoRegistroProducto.guardarTxtProducto();
 						dispose();
 						DRegistroProductoCorrecto v = new DRegistroProductoCorrecto();

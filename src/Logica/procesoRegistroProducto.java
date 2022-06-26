@@ -15,9 +15,9 @@ public class procesoRegistroProducto {
 	
 	
 	
-	public static boolean agregarProducto(String nombreProducto, String nombreUsuario, String categoria, int precio, String descripcion) {
+	public static boolean agregarProducto(String nombreProducto, String nombreUsuario, String categoria, int precio, String descripcion,int id,String fecha) {
 		
-		p = new Productos(nombreUsuario, nombreProducto, categoria, precio, descripcion);
+		p = new Productos(nombreUsuario, nombreProducto, categoria, precio, descripcion,id,fecha);
 		ListaProductos.agregarProducto(p);
 		
 		return false;
@@ -39,10 +39,10 @@ public class procesoRegistroProducto {
 			
 			if (ultimaLinea == i){
 				nuevoArch.write(lista[i].getNomUsuario() + "," + lista[i].getNomProducto() + ","+ lista[i].getCategoria()+ "," 
-							  + lista[i].getPrecio()  + "," + lista[i].getDescripcion());
+							  + lista[i].getPrecio()  + "," + lista[i].getDescripcion() + "," + lista[i].getId() + "," + lista[i].getFecha());
             }else{
             	nuevoArch.write(lista[i].getNomUsuario() + "," + lista[i].getNomProducto() + ","+ lista[i].getCategoria()+ "," 
-						      + lista[i].getPrecio()  + "," + lista[i].getDescripcion()+"\n");
+						      + lista[i].getPrecio()  + "," + lista[i].getDescripcion()+ "," + lista[i].getId() + "," + lista[i].getFecha() + "\n");
             }
 		}
 		nuevoArch.close();
