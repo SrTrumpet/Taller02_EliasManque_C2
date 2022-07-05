@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 import Clases.ListaUsuarios;
 import Interfaces.InicioSesion;
+import Logica.procesoInicioSesion;
 
 import javax.swing.SwingConstants;
 
@@ -87,7 +88,7 @@ public class DMisPublicaciones extends JDialog {
 		}
 		{
 			
-			JLabel nombreCompleto = new JLabel("Nombre: "+ ListaUsuarios.buscarPersona(InicioSesion.getUsuarioInicio()).getFullName());
+			JLabel nombreCompleto = new JLabel("Nombre: "+ procesoInicioSesion.buscarUsuario(InicioSesion.getUsuarioInicio()).getFullName());
 			nombreCompleto.setHorizontalAlignment(SwingConstants.CENTER);
 			nombreCompleto.setBounds(394, 10, 251, 25);
 			contentPanel.add(nombreCompleto);

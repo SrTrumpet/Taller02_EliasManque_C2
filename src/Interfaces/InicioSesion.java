@@ -10,10 +10,12 @@ import javax.swing.border.EmptyBorder;
 
 import Clases.ListaProductos;
 import Clases.ListaUsuarios;
+import Clases.Productos;
 import Clases.Usuario;
 import Dialogos.DRegistro;
 import Dialogos.DfalloInicioSesion;
 import Ejecutable.InicioMain;
+import Logica.procesoInicioSesion;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -30,8 +32,8 @@ public class InicioSesion extends JFrame {
 	private JTextField user;
 	private JPasswordField passwordField;
 	
-	protected static ListaUsuarios listaUser = InicioMain.getListaUsuarios();
-	protected static ListaProductos listaProducto = InicioMain.getListaProductos();
+	protected static ArrayList<Productos> listaProduc = InicioMain.getListaProduc();
+	protected static ArrayList<Usuario> listauser = InicioMain.getListauser();
 	private static String usuarioInicio;
 
 	/**
@@ -120,29 +122,38 @@ public class InicioSesion extends JFrame {
 		String usuario = user.getText();
 		String password = passwordField.getText();
 		
-		String nombreUsuarios = listaUser.buscarPersonaString(usuario);
-		String passwordConfirmar = listaUser.buscarContraseña(usuario);
+		Usuario u = procesoInicioSesion.buscarUsuario(usuario);
+		
+		String nombreUsuarios = u.getUsuario();
+		
+		String passwordConfirmar = u.getPassword();
 		
 		
-		if (usuario.equals(null)) {
-			DfalloInicioSesion ventanaError = new DfalloInicioSesion();
-			ventanaError.setVisible(rootPaneCheckingEnabled);
+		if (u.equals(null)) {
+			DfalloInicioSesion v = new DfalloInicioSesion();
+			v.setVisible(rootPaneCheckingEnabled);
 		}
-		else if (nombreUsuarios.equals(usuario)) {
-			if(password.equals(passwordConfirmar)) {
-				usuarioInicio = usuario;
-				FrameVentas ventanaPrincipal = new FrameVentas();
-				ventanaPrincipal.setVisible(true);
-				dispose();
+		else {
+			if (usuario.equals(null)) {
+				DfalloInicioSesion ventanaError = new DfalloInicioSesion();
+				ventanaError.setVisible(rootPaneCheckingEnabled);
+			}
+			else if (nombreUsuarios.equals(usuario)) {
+				if(password.equals(passwordConfirmar)) {
+					usuarioInicio = usuario;
+					FrameVentas ventanaPrincipal = new FrameVentas();
+					ventanaPrincipal.setVisible(true);
+					dispose();
+				}else {
+					DfalloInicioSesion ventanaError = new DfalloInicioSesion();
+					ventanaError.setVisible(rootPaneCheckingEnabled);
+				}
 			}else {
 				DfalloInicioSesion ventanaError = new DfalloInicioSesion();
 				ventanaError.setVisible(rootPaneCheckingEnabled);
 			}
-		}else {
-			DfalloInicioSesion ventanaError = new DfalloInicioSesion();
-			ventanaError.setVisible(rootPaneCheckingEnabled);
+			
 		}
-		
 	}
 
 	

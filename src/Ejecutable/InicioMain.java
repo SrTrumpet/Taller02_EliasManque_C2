@@ -2,6 +2,7 @@ package Ejecutable;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Clases.ListaProductos;
@@ -12,8 +13,8 @@ import Interfaces.InicioSesion;
 
 public class InicioMain {
 	
-	private static ListaProductos listaProductos;
-	private static ListaUsuarios listaUsuarios;
+	private static ArrayList<Productos> listaProduc;
+	private static ArrayList<Usuario> listauser;
 	
 	
 	
@@ -21,11 +22,11 @@ public class InicioMain {
 	
 	public static void main(String[] args) throws IOException {
 		
-		listaUsuarios = new ListaUsuarios(1000);
-		listaProductos = new ListaProductos(1000);
+		listauser = new ArrayList<>();
+		listaProduc = new ArrayList<>();
 		
-		agregarListaUsuario(listaUsuarios);
-		agregarListaProducto(listaProductos);
+		agregarListaUsuario(listauser);
+		agregarListaProducto(listaProduc);
 		
 		InicioSesion ventanaLogin = new InicioSesion();
 		ventanaLogin.setVisible(true);
@@ -33,7 +34,7 @@ public class InicioMain {
 		
 	}
 	
-	public static void agregarListaUsuario(ListaUsuarios lista) throws IOException  {
+	public static void agregarListaUsuario(ArrayList<Usuario> lista) throws IOException  {
 		
 		File arch = new File("usuarios.txt");
 		
@@ -54,15 +55,15 @@ public class InicioMain {
 			String contacto = datos[4];
 			
 			Usuario u = new Usuario(usuario, password, fullName, correo, contacto);
-			lista.agregarUsuario(u);
+			lista.add(u);
 			
 		}
 		leer.close();
 		
 	}
 	
-	@SuppressWarnings("static-access")
-	public static void agregarListaProducto(ListaProductos lista) throws IOException  {
+
+	public static void agregarListaProducto(ArrayList<Productos> lista) throws IOException  {
 		
 		File arch = new File("productos.txt");
 		
@@ -84,45 +85,45 @@ public class InicioMain {
 			String fecha = datos[6];
 			
 			Productos p = new Productos(usuario, producto, categoria, precio, descripcion,id,fecha);
-			lista.agregarProducto(p);
+			lista.add(p);
 			
 		}
 		leer.close();
 	}
 
-
-
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-	public static ListaProductos getListaProductos() {
-		return listaProductos;
-	}
-	public static void setListaProductos(ListaProductos listaProductos) {
-		InicioMain.listaProductos = listaProductos;
+	public static ArrayList<Productos> getListaProduc() {
+		return listaProduc;
 	}
 
-	public static ListaUsuarios getListaUsuarios() {
-		return listaUsuarios;
+	public static void setListaProduc(ArrayList<Productos> listaProduc) {
+		InicioMain.listaProduc = listaProduc;
 	}
 
-	public static void setListaUsuarios(ListaUsuarios listaUsuarios) {
-		InicioMain.listaUsuarios = listaUsuarios;
+	public static ArrayList<Usuario> getListauser() {
+		return listauser;
 	}
+
+	public static void setListauser(ArrayList<Usuario> listauser) {
+		InicioMain.listauser = listauser;
+	}
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
 
 }
