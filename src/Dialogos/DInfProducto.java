@@ -67,8 +67,32 @@ public class DInfProducto extends JDialog {
 		
 		JButton btnNewButton = new JButton("Comprar");
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton.setBounds(10, 308, 208, 37);
+		btnNewButton.setBounds(10, 343, 208, 37);
 		contentPanel.add(btnNewButton);
+		
+		JLabel descripcionDInfo = new JLabel("descrip");
+		descripcionDInfo.setBounds(10, 197, 208, 86);
+		contentPanel.add(descripcionDInfo);
+		
+		JLabel label = new JLabel("New label");
+		label.setBounds(10, 320, 127, -6);
+		contentPanel.add(label);
+		
+		JLabel precioDInf = new JLabel("precio");
+		precioDInf.setBounds(20, 296, 140, 37);
+		contentPanel.add(precioDInf);
+		
+		JLabel nomVendedorDInf = new JLabel("Vendedor");
+		nomVendedorDInf.setBounds(246, 68, 157, 25);
+		contentPanel.add(nomVendedorDInf);
+		
+		JLabel lblNewLabel_1 = new JLabel("cantacto");
+		lblNewLabel_1.setBounds(474, 68, 115, 25);
+		contentPanel.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("inf Vendedor");
+		lblNewLabel_2.setBounds(244, 34, 226, 24);
+		contentPanel.add(lblNewLabel_2);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));

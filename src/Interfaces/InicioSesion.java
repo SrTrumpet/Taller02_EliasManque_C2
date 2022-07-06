@@ -35,6 +35,7 @@ public class InicioSesion extends JFrame {
 	protected static ArrayList<Productos> listaProduc = InicioMain.getListaProduc();
 	protected static ArrayList<Usuario> listauser = InicioMain.getListauser();
 	private static String usuarioInicio;
+	private static int index = 0;
 
 	/**
 	 * Launch the application.
@@ -139,9 +140,11 @@ public class InicioSesion extends JFrame {
 				ventanaError.setVisible(rootPaneCheckingEnabled);
 			}
 			else if (nombreUsuarios.equals(usuario)) {
-				if(password.equals(passwordConfirmar)) {
+				if(password.equals(passwordConfirmar)) {				
 					usuarioInicio = usuario;
+					index = listauser.indexOf(u);
 					FrameVentas ventanaPrincipal = new FrameVentas();
+					FrameVentas.llenarTabla();
 					ventanaPrincipal.setVisible(true);
 					dispose();
 				}else {
@@ -160,6 +163,12 @@ public class InicioSesion extends JFrame {
 	public static String getUsuarioInicio() {
 		return usuarioInicio;
 	}
+
+	public static int getIndex() {
+		return index;
+	}
+
+	
 	
 	
 	

@@ -3,3 +3,4 @@ SrTrumpet,1234,Elias Manque Olivares,eliasmanque@gmail.com,+56948667729
 elias,123,elias Nicolas,eeee@gmail.com,+56956789245
 sdasd,a,asdasd,@gmail.com,+56911111111
 wenas,Benito,Benito Camelo,benito@gmail.com,+56945896231
+elMasBacan,monica123,Monica Galindo,monica.galindo@gmail.com,+56945454545

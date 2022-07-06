@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Clases.ListaProductos;
+import Clases.Productos;
+import Ejecutable.InicioMain;
 import Interfaces.FrameVentas;
 import Interfaces.InicioSesion;
 import Logica.procesoRegistroProducto;
@@ -22,6 +24,7 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Choice;
 
@@ -32,6 +35,7 @@ public class DCrearVenta extends JDialog {
 	private JTextField precioProducto;
 	private Choice categoria;
 	private JTextPane descripcionProducto;
+	private static ArrayList<Productos> lista = InicioMain.getListaProduc();
 	
 	
 	
@@ -106,7 +110,7 @@ public class DCrearVenta extends JDialog {
 				String categoriaProducto = categoria.getSelectedItem();
 				int precio =  Integer.parseInt(precioProducto.getText());
 				String descripcion = descripcionProducto.getText();
-				int ultimoValor = ListaProductos.getCantProducto() + 1;
+				int ultimoValor = lista.size() + 1;
 				LocalDate fechaObtenida = LocalDate.now();
 				String fecha = fechaObtenida.toString();
 				System.out.println(fecha);
@@ -121,7 +125,7 @@ public class DCrearVenta extends JDialog {
 						System.out.println("Ingrese un nombre");
 					}
 					else if (!procesoRegistroProducto.agregarProducto(nombreProducto,nombreUsuario,categoriaProducto,precio,descripcion,ultimoValor,fecha)) {
-						procesoRegistroProducto.guardarTxtProducto();
+						procesoRegistroProducto.guardarTxtProducto(lista);
 						dispose();
 						DRegistroProductoCorrecto v = new DRegistroProductoCorrecto();
 						v.setVisible(rootPaneCheckingEnabled);

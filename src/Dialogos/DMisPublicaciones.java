@@ -8,12 +8,17 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Font;
+import java.util.ArrayList;
+
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import Clases.ListaUsuarios;
+
+import Clases.Productos;
+import Clases.Usuario;
+import Ejecutable.InicioMain;
 import Interfaces.InicioSesion;
 import Logica.procesoInicioSesion;
 
@@ -22,7 +27,14 @@ import javax.swing.SwingConstants;
 public class DMisPublicaciones extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTable table;
+	private JTable tableMisPublicaciones;
+	private static DefaultTableModel miTabla;
+	private static int totalProductos=0;
+	
+	private static ArrayList<Productos> listaP = InicioMain.getListaProduc();
+	private static ArrayList<Usuario> listaU = InicioMain.getListauser();
+	
+	
 
 	/**
 	 * Launch the application.
@@ -60,9 +72,9 @@ public class DMisPublicaciones extends JDialog {
 			contentPanel.add(btnNewButton_1);
 		}
 		{
-			JLabel lblNewLabel = new JLabel("Cantidad de Ventas:");
+			JLabel lblNewLabel = new JLabel("Cantidad de Ventas: " + totalVentas(totalProductos));
 			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-			lblNewLabel.setBounds(192, 340, 194, 31);
+			lblNewLabel.setBounds(216, 340, 194, 31);
 			contentPanel.add(lblNewLabel);
 		}
 		{
@@ -70,20 +82,20 @@ public class DMisPublicaciones extends JDialog {
 			scrollPane.setBounds(10, 97, 635, 178);
 			contentPanel.add(scrollPane);
 			{
-				table = new JTable();
-				table.setModel(new DefaultTableModel(
-					new Object[][] {
-						{null, null, null, null, null},
-					},
-					new String[] {
-						"ID", "Nombre", "Categoria", "Fecha", "VendidosS_N"
-					}
-				));
-				table.getColumnModel().getColumn(0).setPreferredWidth(15);
-				table.getColumnModel().getColumn(0).setMinWidth(9);
-				table.getColumnModel().getColumn(3).setPreferredWidth(15);
-				table.getColumnModel().getColumn(4).setPreferredWidth(15);
-				scrollPane.setViewportView(table);
+				
+				tableMisPublicaciones = new JTable();
+				
+				miTabla = new DefaultTableModel();
+				
+				tableMisPublicaciones.setModel(miTabla);
+				
+				miTabla.addColumn("ID");
+				miTabla.addColumn("Nombre");
+				miTabla.addColumn("Categoria");
+				miTabla.addColumn("Fecha");
+				miTabla.addColumn("VedidasS_N");
+				
+				scrollPane.setViewportView(tableMisPublicaciones);
 			}
 		}
 		{
@@ -94,10 +106,63 @@ public class DMisPublicaciones extends JDialog {
 			contentPanel.add(nombreCompleto);
 		}
 		{
+			int i = InicioSesion.getIndex();
+			System.out.println(i);
+			JLabel lblNewLabel_1 = new JLabel("Numero: "+listaU.get(i).getContacto());
+			lblNewLabel_1.setBounds(10, 16, 231, 25);
+			contentPanel.add(lblNewLabel_1);
+		}
+		{
+			JLabel lblNewLabel_2 = new JLabel("Publicaciones");
+			lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+			lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNewLabel_2.setBounds(220, 74, 203, 25);
+			contentPanel.add(lblNewLabel_2);
+		}
+		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 		}
 	}
+	
+	
+	public static void llenarTabla() {
+		
+		String nombre = InicioSesion.getUsuarioInicio();
+		
+		for (Productos valores : listaP) {
+			Object[] filas = new Object[5];
+			if (nombre.equals(valores.getNomUsuario())) {
+				filas[0] = valores.getId();
+				filas[1] = valores.getNomProducto();
+				filas[2] = valores.getCategoria();
+				filas[3] = valores.getFecha();
+				filas[4] = "No";
+				miTabla.addRow(filas);
+			}
+		}
+	}
+	
+	public int totalVentas(int i) {
+		String nombre = InicioSesion.getUsuarioInicio();
+		for (Productos valores : listaP) {
+			if (nombre.equals(valores.getNomUsuario())) {
+				i++;
+			}
+		}
+		return i;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

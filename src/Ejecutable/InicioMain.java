@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Clases.ListaProductos;
-import Clases.ListaUsuarios;
 import Clases.Productos;
 import Clases.Usuario;
 import Interfaces.InicioSesion;

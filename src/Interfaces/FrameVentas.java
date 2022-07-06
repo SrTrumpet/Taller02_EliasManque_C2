@@ -13,13 +13,16 @@ import java.awt.Panel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import Clases.Productos;
 import Dialogos.DCrearVenta;
 import Dialogos.DInfProducto;
 import Dialogos.DMisCompras;
 import Dialogos.DMisPublicaciones;
+import Ejecutable.InicioMain;
 
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 
@@ -27,6 +30,8 @@ public class FrameVentas extends JFrame {
 
 	private JPanel contentPane;
 	private JTable listaProducto;
+	private static DefaultTableModel miTabla;
+	public static ArrayList<Productos> listaP = InicioMain.getListaProduc();
 
 	/**
 	 * Launch the application.
@@ -71,6 +76,7 @@ public class FrameVentas extends JFrame {
 		ventanaMisProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DMisPublicaciones ventanaMisPublicaciones = new DMisPublicaciones();
+				DMisPublicaciones.llenarTabla();
 				ventanaMisPublicaciones.setVisible(rootPaneCheckingEnabled);
 			}
 		});
@@ -129,87 +135,18 @@ public class FrameVentas extends JFrame {
 		contentPane.add(scrollPane);
 		
 		listaProducto = new JTable();
+		
+		miTabla = new DefaultTableModel();
+		
+		listaProducto.setModel(miTabla);
+		
+		miTabla.addColumn("ID");
+		miTabla.addColumn("Nombre");
+		miTabla.addColumn("Categoria");
+		miTabla.addColumn("Fecha");
+		miTabla.addColumn("Visto");
 		scrollPane.setViewportView(listaProducto);
-		listaProducto.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-			},
-			new String[] {
-				"ID", "Nombre", "Fecha", "Visto"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				String.class, Object.class, Object.class, Object.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, false
-			};
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
+		
 		
 		JLabel lblNewLabel = new JLabel("Bienvenido");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -225,13 +162,23 @@ public class FrameVentas extends JFrame {
 		lblListaDeProductos.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblListaDeProductos.setBounds(10, 43, 297, 23);
 		contentPane.add(lblListaDeProductos);
-		listaProducto.getColumnModel().getColumn(0).setResizable(false);
-		listaProducto.getColumnModel().getColumn(0).setPreferredWidth(15);
-		listaProducto.getColumnModel().getColumn(1).setResizable(false);
-		listaProducto.getColumnModel().getColumn(1).setPreferredWidth(179);
-		listaProducto.getColumnModel().getColumn(2).setResizable(false);
-		listaProducto.getColumnModel().getColumn(2).setPreferredWidth(106);
-		listaProducto.getColumnModel().getColumn(3).setResizable(false);
-		listaProducto.getColumnModel().getColumn(3).setPreferredWidth(56);
+	}
+	
+	
+public static void llenarTabla() {
+		
+		String nombre = InicioSesion.getUsuarioInicio();
+		
+		for (Productos valores : listaP) {
+			Object[] filas = new Object[5];
+			
+			filas[0] = valores.getId();
+			filas[1] = valores.getNomProducto();
+			filas[2] = valores.getCategoria();
+			filas[3] = valores.getFecha();
+			filas[4] = "No";
+			miTabla.addRow(filas);
+			
+		}
 	}
 }
