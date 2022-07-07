@@ -8,18 +8,17 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Clases.ListaUsuarios;
+
 import Clases.Productos;
 import Clases.Usuario;
 import Ejecutable.InicioMain;
-import Interfaces.InicioSesion;
+
 import Logica.procesoRegistro;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
@@ -141,81 +140,7 @@ public class DRegistro extends JDialog {
 			accionRegistro.addActionListener(new ActionListener() {
 				
 				public void actionPerformed(ActionEvent e) {
-					
-					
-					
-					
-					String nombreUsuario = nomUsuario.getText();
-					String nombreCompelto = fullName.getText();
-					String correoUser = correo.getText();
-					String contactoUser = contacto.getText();
-					String contrasena = password.getText();
-					String contrasenaConfirm = passConfirm.getText();
-					
-					int sumaCorrecta = 0;
-					
-					if(procesoRegistro.personaExiste(nombreUsuario)) {
-						sumaCorrecta++;
-						DVentanaErrorRegistroUsuarioExiste ventanaErrorUsuario = new DVentanaErrorRegistroUsuarioExiste();
-						ventanaErrorUsuario.setVisible(rootPaneCheckingEnabled);
-
-					}
-					else if(nombreUsuario.length() < 4) {
-						sumaCorrecta++;
-						DRegistroErrorUsuario u = new DRegistroErrorUsuario();
-						u.setVisible(rootPaneCheckingEnabled);
-					}
-					else if(nombreCompelto.length() < 6) {
-						sumaCorrecta++;
-						DRegistroErrorUsuario u = new DRegistroErrorUsuario();
-						u.setVisible(rootPaneCheckingEnabled);
-					}
-					else if(correoUser.length() < 13) {
-						DRegistroErrorCorreo c = new DRegistroErrorCorreo();
-						c.setVisible(rootPaneCheckingEnabled);
-					}					
-					else if(contactoUser.length() != 12) {
-						sumaCorrecta++;
-						DRegistroErrorContacto ventanaErrorContacto = new DRegistroErrorContacto();
-						ventanaErrorContacto.setVisible(rootPaneCheckingEnabled);						
-					}					
-					else if(procesoRegistro.personaExiste(nombreUsuario)) {
-						sumaCorrecta++;
-						DVentanaErrorRegistroUsuarioExiste ventanaErrorUsuario = new DVentanaErrorRegistroUsuarioExiste();
-						ventanaErrorUsuario.setVisible(rootPaneCheckingEnabled);
-
-					} 
-					else if (contrasenaConfirm.length() == 0 || contrasena.length() == 0 ) {
-						sumaCorrecta++;
-						DVentanaErrorRegistro error = new DVentanaErrorRegistro();
-						error.setVisible(rootPaneCheckingEnabled);
-											
-					}
-					else if (!contrasena.equals(contrasenaConfirm)) {
-						sumaCorrecta++;
-						DVentanaErrorRegistro error = new DVentanaErrorRegistro();
-						error.setVisible(rootPaneCheckingEnabled);
-					}
-					else if (sumaCorrecta == 0){
-	
-						Usuario u = new Usuario(nombreUsuario, contrasena, nombreCompelto, correoUser, contactoUser);
-						listauser.add(u);
-						
-						try {
-							procesoRegistro.saveTxt(listauser);
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}	
-						
-						
-						
-						DVentanaCorrectoRegistro registrado = new DVentanaCorrectoRegistro();
-						registrado.setVisible(true);
-						dispose();
-						
-					}
-					
+					registro();	
 				}
 			});
 			accionRegistro.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -229,5 +154,25 @@ public class DRegistro extends JDialog {
 		}
 	}
 	
+	
+	
+	public void registro() {
+		
+		String nombreUsuario = nomUsuario.getText();
+		String nombreCompelto = fullName.getText();
+		String correoUser = correo.getText();
+		String contactoUser = contacto.getText();
+		String contrasena = password.getText();
+		String contrasenaConfirm = passConfirm.getText();
+		
+		
+		procesoRegistro.registroProceso(nombreUsuario, nombreCompelto, correoUser, contactoUser, contrasena, contrasenaConfirm);
+		
+		if(procesoRegistro.personaExiste(nombreUsuario)) {
+			dispose();
+		}
+		
+		
+	}
 
 }

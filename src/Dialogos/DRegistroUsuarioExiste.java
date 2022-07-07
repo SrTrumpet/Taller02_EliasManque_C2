@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-public class DVentanaErrorRegistroUsuarioExiste extends JDialog {
+public class DRegistroUsuarioExiste extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -21,7 +21,7 @@ public class DVentanaErrorRegistroUsuarioExiste extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			DVentanaErrorRegistroUsuarioExiste dialog = new DVentanaErrorRegistroUsuarioExiste();
+			DRegistroUsuarioExiste dialog = new DRegistroUsuarioExiste();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -32,7 +32,7 @@ public class DVentanaErrorRegistroUsuarioExiste extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public DVentanaErrorRegistroUsuarioExiste() {
+	public DRegistroUsuarioExiste() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		contentPanel.setBounds(0, 0, 436, 253);
@@ -41,7 +41,7 @@ public class DVentanaErrorRegistroUsuarioExiste extends JDialog {
 		contentPanel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(DVentanaErrorRegistroUsuarioExiste.class.getResource("/Imagenes/error.png")));
+		lblNewLabel.setIcon(new ImageIcon(DRegistroUsuarioExiste.class.getResource("/Imagenes/error.png")));
 		lblNewLabel.setBounds(164, 28, 103, 130);
 		contentPanel.add(lblNewLabel);
 		

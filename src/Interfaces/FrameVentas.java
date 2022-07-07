@@ -1,6 +1,6 @@
 package Interfaces;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,7 +9,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Choice;
-import java.awt.Panel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 

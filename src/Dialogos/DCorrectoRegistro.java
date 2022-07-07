@@ -12,7 +12,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
-public class DVentanaErrorRegistro extends JDialog {
+public class DCorrectoRegistro extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -21,8 +21,7 @@ public class DVentanaErrorRegistro extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			
-			DVentanaErrorRegistro dialog = new DVentanaErrorRegistro();
+			DCorrectoRegistro dialog = new DCorrectoRegistro();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -33,22 +32,23 @@ public class DVentanaErrorRegistro extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public DVentanaErrorRegistro() {
-		setBounds(100, 100, 435, 239);
+	public DCorrectoRegistro() {
+		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		
-		JLabel iconoError = new JLabel("");
-		iconoError.setIcon(new ImageIcon(DVentanaErrorRegistro.class.getResource("/Imagenes/error.png")));
-		iconoError.setBounds(165, 42, 96, 96);
-		contentPanel.add(iconoError);
 		{
-			JLabel lblNewLabel = new JLabel("Error, Contrase\u00F1a no Coincide");
+			JLabel lblNewLabel_1 = new JLabel("");
+			lblNewLabel_1.setIcon(new ImageIcon(DCorrectoRegistro.class.getResource("/Imagenes/correcto.png")));
+			lblNewLabel_1.setBounds(173, 54, 96, 96);
+			contentPanel.add(lblNewLabel_1);
+		}
+		{
+			JLabel lblNewLabel = new JLabel("Usuario registrado correctamente");
 			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-			lblNewLabel.setBounds(65, 114, 313, 55);
-			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+			lblNewLabel.setBounds(23, 122, 388, 68);
 			contentPanel.add(lblNewLabel);
 		}
 		{
@@ -57,4 +57,5 @@ public class DVentanaErrorRegistro extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 		}
 	}
+
 }
