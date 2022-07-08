@@ -8,12 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Clases.ListaProductos;
-import Clases.ListaUsuarios;
+
 import Clases.Productos;
 import Clases.Usuario;
 import Dialogos.DRegistro;
-import Dialogos.DfalloInicioSesion;
+
 import Ejecutable.InicioMain;
 import Logica.procesoInicioSesion;
 
@@ -26,7 +25,8 @@ import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class InicioSesion extends JFrame {
+@SuppressWarnings("serial")
+public class InicioSesion extends JFrame{
 
 	private JPanel contentPane;
 	private JTextField user;
@@ -88,8 +88,19 @@ public class InicioSesion extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				inicioSesion();
+				String usuario = user.getText();
 				
+				@SuppressWarnings("deprecation")
+				String password = passwordField.getText();
+				
+				if(procesoInicioSesion.inicioSesionI(usuario,password)) {
+					usuarioInicio = usuario;
+					index = procesoInicioSesion.indiceUsuario(usuario);
+					FrameVentas ventanaPrincipal = new FrameVentas();
+					FrameVentas.llenarTabla();
+					ventanaPrincipal.setVisible(true);
+					dispose();
+				}
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -117,49 +128,6 @@ public class InicioSesion extends JFrame {
 		contentPane.add(btnNewButton_1);
 	}
 	
-	
-	private void inicioSesion() {
-		
-		String usuario = user.getText();
-		String password = passwordField.getText();
-		
-		Usuario u = procesoInicioSesion.buscarUsuario(usuario);
-		
-		String nombreUsuarios = u.getUsuario();
-		
-		String passwordConfirmar = u.getPassword();
-		
-		
-		if (u.equals(null)) {
-			DfalloInicioSesion v = new DfalloInicioSesion();
-			v.setVisible(rootPaneCheckingEnabled);
-		}
-		else {
-			if (usuario.equals(null)) {
-				DfalloInicioSesion ventanaError = new DfalloInicioSesion();
-				ventanaError.setVisible(rootPaneCheckingEnabled);
-			}
-			else if (nombreUsuarios.equals(usuario)) {
-				if(password.equals(passwordConfirmar)) {				
-					usuarioInicio = usuario;
-					index = listauser.indexOf(u);
-					FrameVentas ventanaPrincipal = new FrameVentas();
-					FrameVentas.llenarTabla();
-					ventanaPrincipal.setVisible(true);
-					dispose();
-				}else {
-					DfalloInicioSesion ventanaError = new DfalloInicioSesion();
-					ventanaError.setVisible(rootPaneCheckingEnabled);
-				}
-			}else {
-				DfalloInicioSesion ventanaError = new DfalloInicioSesion();
-				ventanaError.setVisible(rootPaneCheckingEnabled);
-			}
-			
-		}
-	}
-
-	
 	public static String getUsuarioInicio() {
 		return usuarioInicio;
 	}
@@ -168,27 +136,6 @@ public class InicioSesion extends JFrame {
 		return index;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	
 }

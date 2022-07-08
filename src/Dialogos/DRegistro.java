@@ -8,7 +8,6 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-
 import Clases.Productos;
 import Clases.Usuario;
 import Ejecutable.InicioMain;
@@ -19,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
@@ -140,7 +140,20 @@ public class DRegistro extends JDialog {
 			accionRegistro.addActionListener(new ActionListener() {
 				
 				public void actionPerformed(ActionEvent e) {
-					registro();	
+					
+					String nombreUsuario = nomUsuario.getText();
+					String nombreCompelto = fullName.getText();
+					String correoUser = correo.getText();
+					String contactoUser = contacto.getText();
+					String contrasena = password.getText();
+					String contrasenaConfirm = passConfirm.getText();
+					
+					procesoRegistro.registroProceso(nombreUsuario, nombreCompelto, correoUser, contactoUser, contrasena, contrasenaConfirm);
+					
+					if (procesoRegistro.personaExiste(nombreUsuario)) {
+						dispose();
+					}
+	
 				}
 			});
 			accionRegistro.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -153,26 +166,4 @@ public class DRegistro extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 		}
 	}
-	
-	
-	
-	public void registro() {
-		
-		String nombreUsuario = nomUsuario.getText();
-		String nombreCompelto = fullName.getText();
-		String correoUser = correo.getText();
-		String contactoUser = contacto.getText();
-		String contrasena = password.getText();
-		String contrasenaConfirm = passConfirm.getText();
-		
-		
-		procesoRegistro.registroProceso(nombreUsuario, nombreCompelto, correoUser, contactoUser, contrasena, contrasenaConfirm);
-		
-		if(procesoRegistro.personaExiste(nombreUsuario)) {
-			dispose();
-		}
-		
-		
-	}
-
 }

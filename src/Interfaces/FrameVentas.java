@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 
+@SuppressWarnings("serial")
 public class FrameVentas extends JFrame {
 
 	private JPanel contentPane;
@@ -164,9 +165,9 @@ public class FrameVentas extends JFrame {
 	}
 	
 	
-public static void llenarTabla() {
+	public static void llenarTabla() {
 		
-		String nombre = InicioSesion.getUsuarioInicio();
+		
 		
 		for (Productos valores : listaP) {
 			Object[] filas = new Object[5];
@@ -180,4 +181,5 @@ public static void llenarTabla() {
 			
 		}
 	}
+
 }

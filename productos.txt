@@ -4,3 +4,4 @@ popa,popote,Cocina u Hogar,12,solo es un popote,3,2022-07-06
 moma,poosss,Moda,60000000,caro y wenardo,4,2022-07-06
 SrTrumpet,ulTra Popote,Herramienta,200000,Weno pa martillar,5,2022-07-06
 elMasBacan,popoter,Juego,30000,<aaaaaaa,6,2022-07-06
+elias,carreta antigua,Vehiculo,200000,Carreta de los años 1890,7,2022-07-07

@@ -5,3 +5,6 @@ sdasd,a,asdasd,@gmail.com,+56911111111
 wenas,Benito,Benito Camelo,benito@gmail.com,+56945896231
 elMasBacan,monica123,Monica Galindo,monica.galindo@gmail.com,+56945454545
 elva,1234,elva zilon,elva.zilon@gmail.com,+56912345678
+unoNuevo,e123,Nueve Lando,aasdas@gmail.com,+56912345678
+vamo,1234,asdasdasd,asdasd@gmail.com,+56942424242
+qweqwe,123,qqqqqqq,weqweq@gmail.com,+56920202020
