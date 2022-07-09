@@ -12,7 +12,7 @@ public class procesoInicioSesion {
 	protected static ArrayList<Productos> listaProduc = InicioMain.getListaProduc();
 	protected static ArrayList<Usuario> listauser = InicioMain.getListauser();
 	
-public static boolean inicioSesionI(String usuario, String password) {		
+	public static boolean inicioSesionI(String usuario, String password) {		
 		
 		boolean inicio = false;
 		
@@ -23,39 +23,31 @@ public static boolean inicioSesionI(String usuario, String password) {
 			DfalloInicioSesion ventanaError = new DfalloInicioSesion();
 			ventanaError.setVisible(true);
 			return inicio;
-		}
+		}	
 		
-			
 		String nombreUsuarios = u.getUsuario();		
 		String passwordConfirmar = u.getPassword();
-		
-		
-		if (u.equals(null)) {
-			DfalloInicioSesion v = new DfalloInicioSesion();
-			v.setVisible(true);
-			
-		}
-		else {
-			if (usuario.equals(null)) {
+				
+		if (usuario.equals(null)) {
 				DfalloInicioSesion ventanaError = new DfalloInicioSesion();
 				ventanaError.setVisible(true);
 				
-			}
-			else if (nombreUsuarios.equals(usuario)) {
-				if(password.equals(passwordConfirmar)) {
+		}
+		else if (nombreUsuarios.equals(usuario)) {
+			if(password.equals(passwordConfirmar)) {
 					inicio = true;	
-				}else {
+			}else {
 					DfalloInicioSesion ventanaError = new DfalloInicioSesion();
 					ventanaError.setVisible(true);
 					
-				}
+			}
 			}else {
 				DfalloInicioSesion ventanaError = new DfalloInicioSesion();
 				ventanaError.setVisible(true);
 				
 			}
 			
-		}
+		
 		return inicio;
 	}
 	

@@ -84,8 +84,8 @@ public class InicioSesion extends JFrame{
 		lblNewLabel_2.setBounds(66, 266, 195, 25);
 		contentPane.add(lblNewLabel_2);
 		
-		JButton btnNewButton = new JButton("Ingresar");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton botonIngresar = new JButton("Ingresar");
+		botonIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				String usuario = user.getText();
@@ -103,9 +103,9 @@ public class InicioSesion extends JFrame{
 				}
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton.setBounds(98, 324, 223, 41);
-		contentPane.add(btnNewButton);
+		botonIngresar.setFont(new Font("Tahoma", Font.BOLD, 15));
+		botonIngresar.setBounds(98, 324, 223, 41);
+		contentPane.add(botonIngresar);
 		
 		user = new JTextField();
 		user.setBounds(98, 96, 223, 35);

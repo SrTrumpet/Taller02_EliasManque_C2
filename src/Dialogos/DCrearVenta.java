@@ -118,7 +118,6 @@ public class DCrearVenta extends JDialog {
 				
 				try {
 					if(categoriaProducto.equals("-----")) {
-						System.out.println(nombreUsuario);
 						System.out.println("Elija una categoria");
 					}
 					else if(nombreProducto.equals("")) {

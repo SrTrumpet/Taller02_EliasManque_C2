@@ -1,7 +1,8 @@
-elMasBacan,vazo,Cocina u Hogar,10000,Vazo megaultra finicimo,1,2022-07-06
-SrTrumpet,popo,Cocina u Hogar,30000,popote,2,2022-07-06
-popa,popote,Cocina u Hogar,12,solo es un popote,3,2022-07-06
-moma,poosss,Moda,60000000,caro y wenardo,4,2022-07-06
-SrTrumpet,ulTra Popote,Herramienta,200000,Weno pa martillar,5,2022-07-06
-elMasBacan,popoter,Juego,30000,<aaaaaaa,6,2022-07-06
-elias,carreta antigua,Vehiculo,200000,Carreta de los años 1890,7,2022-07-07
+elMasBacan,Vasos,Cocina u Hogar,10000,Vazo megaultra finicimo,1,2022-07-06
+SrTrumpet,Mesa,Cocina u Hogar,30000,popote,2,2022-07-06
+popa,Cocina,Cocina u Hogar,12,solo es un popote,3,2022-07-06
+moma,Zapatillas,Moda,60000000,caro y wenardo,4,2022-07-06
+SrTrumpet,Taladro,Herramienta,200000,Weno pa martillar,5,2022-07-06
+elMasBacan,Poly Station,Juego,30000,<aaaaaaa,6,2022-07-06
+elias,Carreta antigua,Vehiculo,200000,Carreta de los años 1890,7,2022-07-07
+elias,Violin,Juego,60000,Violin en perfectas condiciones,8,2022-07-08

@@ -72,10 +72,10 @@ public class DMisPublicaciones extends JDialog {
 			contentPanel.add(btnNewButton_1);
 		}
 		{
-			JLabel lblNewLabel = new JLabel("Cantidad de Ventas: " + totalVentas(totalProductos));
-			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-			lblNewLabel.setBounds(216, 340, 194, 31);
-			contentPanel.add(lblNewLabel);
+			JLabel cantVentas = new JLabel("Cantidad de Ventas: " + totalVentas(totalProductos));
+			cantVentas.setFont(new Font("Tahoma", Font.BOLD, 12));
+			cantVentas.setBounds(216, 340, 194, 31);
+			contentPanel.add(cantVentas);
 		}
 		{
 			JScrollPane scrollPane = new JScrollPane();
@@ -108,9 +108,9 @@ public class DMisPublicaciones extends JDialog {
 		{
 			int i = InicioSesion.getIndex();
 			System.out.println(i);
-			JLabel lblNewLabel_1 = new JLabel("Numero: "+listaU.get(i).getContacto());
-			lblNewLabel_1.setBounds(10, 16, 231, 25);
-			contentPanel.add(lblNewLabel_1);
+			JLabel numeroContacto = new JLabel("Numero: "+listaU.get(i).getContacto());
+			numeroContacto.setBounds(10, 16, 231, 25);
+			contentPanel.add(numeroContacto);
 		}
 		{
 			JLabel lblNewLabel_2 = new JLabel("Publicaciones");
